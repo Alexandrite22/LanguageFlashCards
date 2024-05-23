@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://cx4tb5csoq775"]
+
+[ext_resource type="Script" path="res://Parallax.cs" id="1_0we1q"]
+[ext_resource type="Script" path="res://ParallaxBackGround.cs" id="2_h8a6y"]
+[ext_resource type="Script" path="res://ParallaxMidGround.cs" id="3_nqx4g"]
+[ext_resource type="Texture2D" uid="uid://bkyqfrbypckj6" path="res://Resources/ParalaxMidgroundOne.png" id="3_xho2w"]
+[ext_resource type="Texture2D" uid="uid://1vn3sw63dgtt" path="res://Resources/ParalaxForegoundOne.png" id="4_udxof"]
+[ext_resource type="Script" path="res://ParallaxForeGround.cs" id="5_8xmp0"]
+
+[node name="Parallax" type="Node2D"]
+script = ExtResource("1_0we1q")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxBackGround" type="ParallaxLayer" parent="ParallaxBackground"]
+light_mask = 0
+motion_scale = Vector2(0.2, 0.2)
+motion_offset = Vector2(1, 1)
+script = ExtResource("2_h8a6y")
+
+[node name="ParaBack" type="Sprite2D" parent="ParallaxBackground/ParallaxBackGround"]
+modulate = Color(1, 1, 1.7, 1)
+position = Vector2(960, 540)
+
+[node name="ParallaxMidGround" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.4, 0.4)
+motion_offset = Vector2(1, 1)
+script = ExtResource("3_nqx4g")
+
+[node name="ParaMid" type="Sprite2D" parent="ParallaxBackground/ParallaxMidGround"]
+modulate = Color(1, 1, 1.4, 1)
+position = Vector2(960, 540)
+texture = ExtResource("3_xho2w")
+
+[node name="ParallaxForeGround" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.6, 0.6)
+motion_offset = Vector2(1, 1)
+script = ExtResource("5_8xmp0")
+
+[node name="ParaFore" type="Sprite2D" parent="ParallaxBackground/ParallaxForeGround"]
+position = Vector2(960, 540)
+texture = ExtResource("4_udxof")
